@@ -1,6 +1,6 @@
 
 import './App.css'
-import Homescreen from './assets/Pages/Homescreen/Homescreen'
+import Homescreen from './Pages/Homescreen/Homescreen'
 
 function App() {
 

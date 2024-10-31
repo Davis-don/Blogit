@@ -1,0 +1,28 @@
+.overall-header-component {
+display: flex;
+flex-wrap: row;
+justify-content: space-between;
+align-items: center;
+padding: 6rem;
+}
+
+.left-logo-section {
+
+}
+
+.left-logo-section h1 {
+
+}
+
+.right-logo-section {
+
+}
+
+.right-logo-section button {
+    background-color: var(--secondary-color);
+    width: 7rem;
+    height: 3rem;
+    color: var(--tertiary-color);
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
