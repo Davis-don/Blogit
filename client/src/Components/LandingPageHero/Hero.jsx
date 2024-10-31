@@ -3,8 +3,10 @@ import './hero.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import VideoPlayer from '../../Utils/VideoPlayer';
+import { useNavigate } from 'react-router-dom';
 
 function Hero() {
+   const navigate = useNavigate();
   return (
     <div className='overall-hero-section'>
          <div className="left-side-hero">
@@ -15,14 +17,14 @@ function Hero() {
 
             <div className="call-to-action-links">
                 <div className="start-writting">
-             <button className='btn'>Start Writting</button>
+             <button onClick={()=>navigate('/signup')} className='btn'>Start Writting</button>
                 </div>
                 <div className="explore-stories">
                     <div className="arrow-icon">
-                    <FaArrowAltCircleRight className='actual-arrow-icon'/>
+                    <FaArrowAltCircleRight onClick={()=>navigate('/signup')} className='actual-arrow-icon'/>
                     </div>
                    <div className="text-link">
-                    <p className='text-light explore-p'>Explore text for readers</p>
+                    <p onClick={()=>navigate('/signup')} className='text-light explore-p'>Explore text for readers</p>
                    </div>
                 </div>
              </div>

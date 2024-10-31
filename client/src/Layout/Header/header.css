@@ -22,7 +22,8 @@ flex-wrap: wrap;
 }
 
 .right-logo-section {
-
+display: flex;
+gap:2rem
 }
 
 .right-logo-section button {

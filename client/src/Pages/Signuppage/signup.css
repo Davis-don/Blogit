@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lobster&display=swap');
+
+.overall-signup-container{
+height: 100vh;
+background-image: url('../../assets/signup-img.jpg');
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+@media screen and (max-width:46.875em) {
+    .overall-signup-container{
+        height: max-content;
+    }
+}
+.content-holders-signup{
+padding: 2rem;
+display: grid;
+grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
+}
+@media screen and (max-width:46.875em) {
+    .content-holders-signup{
+        display: flex;
+        flex-direction: column;
+    }
+}
+.right-side-signup{
+display: flex;
+flex-direction: column;
+}
+.signup-text-box{
+width: 70%;
+margin: auto;
+}
+@media screen and (max-width:50em) {
+    .signup-text-box{
+        width: 90%;
+    } 
+}
+.signup-text-box h1{
+color: var(--secondary-color);
+text-align: center;
+font-size: 3.5rem;
+}
+@media screen and (max-width:61.25em) {
+    .signup-text-box h1{
+        font-size:2.5rem;
+    }   
+}
+.signup-text-box h4{
+font-size: 2rem;
+text-align: center;
+margin-top: 2rem;
+font-family: "Lobster", serif;
+}
+@media screen and (max-width:61.25em) {
+    .signup-text-box h4{
+        font-size: 1.5rem;
+    }   
+}
+
+.left-side-signup{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.signup-form-holder{
+width: 40rem;
+background-color: white;
+padding: 1rem;
+}
+@media screen and (max-width:30em) {
+    .signup-form-holder{
+        width: 100%;
+    }
+}
+.signup-form-holder h2{
+font-weight: bold;
+text-align: center;
+}
+
+
+
+
+/* Form styles */
+.label-name{
+font-size: 1.5rem;
+}
+.signup-input{
+height: 3rem;
+font-size: 1.5rem;
+}
+.button-submit-signup{
+width: max-content;
+margin: auto;
+}
+.button-submit-signup button{
+width: 10rem;
+height: 3rem;
+font-size: 1.5rem;
+background-color:var(--secondary-color);
+color:white
+}
