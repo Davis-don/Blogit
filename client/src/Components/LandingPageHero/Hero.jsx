@@ -11,7 +11,7 @@ function Hero() {
             <div className="left-side-text-box">
             <h1 className='text-light'>Uncover Stories, Insights, and Inspiration</h1>
             <h2>INSPIRED INSIGHTS</h2>
-            <h5 className='text-light '>Inspiring stories and insights on what matters most.</h5>
+            <h5 className='text-light container-fluid'>Inspiring stories and insights on what matters most.</h5>
 
             <div className="call-to-action-links">
                 <div className="start-writting">
