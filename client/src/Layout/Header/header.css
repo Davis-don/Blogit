@@ -3,13 +3,13 @@ display: flex;
 flex-wrap: row;
 justify-content: space-between;
 align-items: center;
-padding: 2rem;
+padding: 6rem;
 gap: 3rem;
 flex-wrap: wrap;
 }
 @media screen and (max-width:50em) {
     .overall-header-component {
-        padding: 2rem;
+        padding: 4rem;
     }   
 }
 
