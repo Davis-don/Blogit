@@ -81,22 +81,3 @@ text-align: center;
 
 
 
-/* Form styles */
-.label-name{
-font-size: 1.5rem;
-}
-.signup-input{
-height: 3rem;
-font-size: 1.5rem;
-}
-.button-submit-signup{
-width: max-content;
-margin: auto;
-}
-.button-submit-signup button{
-width: 10rem;
-height: 3rem;
-font-size: 1.5rem;
-background-color:var(--secondary-color);
-color:white
-}

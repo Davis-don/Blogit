@@ -1,32 +1,9 @@
 import React from 'react'
 import './signup.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Signupform from '../../Components/Signup/Signupform'
 
 
-function Signupform (){
-
-  
-  return(
-    <div className="signup-overall-form">
-      <label className='text-dark label-name' for='f-name'>First Name</label><br/>
-      <input id='f-name' type='text' className='form-control signup-input' placeholder='first name'/><br/>
-      <label className='text-dark label-name' for='l-name'>Last Name</label><br/>
-      <input id='l-name' type='text' className='form-control signup-input' placeholder='Last name'/><br/>
-      <label className='text-dark label-name' for='email'>Email adress</label><br/>
-      <input id='email' type='text' className='form-control signup-input' placeholder='Email adress'/><br/>
-      <label className='text-dark label-name' for='f-name'>Username</label><br/>
-      <input id='f-name' type='text' className='form-control signup-input' placeholder='username'/><br/>
-      <label className='text-dark label-name' for='f-name'>Password</label><br/>
-      <input id='f-name' type='password' className='form-control signup-input' placeholder='password'/><br/>
-      <label className='text-dark label-name' for='f-name'>Confirm password</label><br/>
-      <input id='f-name' type='password' className='form-control signup-input' placeholder='confirm password'/><br/>
-      <div className="button-submit-signup">
-        <button className='btn'>submit</button>
-      </div>
-
-    </div>
-  )
-}
 
 function Signup() {
   return (
