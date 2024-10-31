@@ -1,11 +1,11 @@
 .overall-hero-section{
-height: 73vh;
+height:85vh;
 display: grid;
 grid-template-columns: repeat(auto-fit,minmax(40rem,1fr));
 gap: 2rem;
-padding-block: 2rem;
+/* padding-block: 2rem; */
 }
-@media screen and (max-width:51.25em) {
+/* @media screen and (max-width:51.25em) {
     .overall-hero-section{
         height: max-content;
     }   
@@ -14,8 +14,9 @@ padding-block: 2rem;
     .overall-hero-section{
         display: flex;
         flex-direction: column;
+        height:80vh;
     }
-}
+} */
 .left-side-hero{
 display: flex;
 flex-direction: column;
