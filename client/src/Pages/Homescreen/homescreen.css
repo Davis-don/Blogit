@@ -3,8 +3,3 @@ background-color: black;
 padding-block: 3rem;
 }
 
-@media screen and (max-width:51.25em) {
-    .overall-homescreen-container{
-        
-        }  
-}
