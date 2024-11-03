@@ -4,9 +4,11 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import {useMutation} from 'react-query'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import useUserStore from '../../Store/Userstore'
 
 function Logincomponent() {
   const redirect = useNavigate()
+  const setUser =  useUserStore((state)=>state.addUser)
   const [success, setSuccess] = useState(false);
 const [userLogins,setuserLogins] = useState ({
     username:"",
@@ -40,6 +42,7 @@ const {mutate,isLoading,isError,error} = useMutation({
   },
  
   onSuccess:(user)=>{
+    setUser(user)
     setSuccess(true);
     setTimeout(() => {
       setSuccess(false);
