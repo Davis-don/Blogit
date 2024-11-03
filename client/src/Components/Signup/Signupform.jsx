@@ -2,9 +2,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './signupform.css';
 import { useState } from 'react';
 import { useMutation } from 'react-query';
+import { useNavigate } from 'react-router-dom'
 
 function Signupform() {
+  const redirect = useNavigate()
   const [success, setSuccess] = useState(false);
+  const [passwordmatch,setPasswordMatch]= useState("")
+  const [passwordset,setPassword] = useState(false)
+  const [passwordMatched,setPasswordMatched] = useState(false)
+
   const { mutate, isLoading, isError, error } = useMutation({
     mutationFn: async (userData) => {
       const response = await fetch(`http://localhost:4000/users`, {
@@ -16,7 +22,7 @@ function Signupform() {
       });
 
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error('failed');
       }
 
       return response.json(); 
@@ -25,7 +31,9 @@ function Signupform() {
       setSuccess(true);
       setTimeout(() => {
         setSuccess(false);
+        redirect("/signin")
       }, 3000);
+      
     }
   });
 
@@ -43,11 +51,25 @@ function Signupform() {
       ...formData,
       [e.target.name]: e.target.value,
     });
+
   };
+  
+  
 
   const handleSubmitUserData = (e) => {
     e.preventDefault(); 
-    mutate(formData); 
+    setPassword(true)
+    if(formData.password === formData.confirmPassword){
+      setPasswordMatch("password set successfully")
+      setPasswordMatched(true)
+      mutate(formData); 
+      return;
+    }
+    setPasswordMatch("Passwords do not match")
+    setPasswordMatched(false)
+
+  
+    
   };
 
   return (
@@ -70,6 +92,7 @@ function Signupform() {
         
         <label className='text-dark label-name' htmlFor='password'>Password</label><br />
         <input onChange={handleFormUpdate} required name='password' id='password' type='password' className='form-control signup-input' placeholder='Password' /><br />
+        {passwordset && <div className={passwordMatched ? "alert alert-success" : "alert alert-danger"}>{passwordmatch}</div>}
         
         <label className='text-dark label-name' htmlFor='confirmPassword'>Confirm Password</label><br />
         <input onChange={handleFormUpdate} required name='confirmPassword' id='confirmPassword' type='password' className='form-control signup-input' placeholder='Confirm Password' /><br />

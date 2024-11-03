@@ -3,9 +3,11 @@ import './logincomponent.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {useMutation} from 'react-query'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function Logincomponent() {
-
+  const redirect = useNavigate()
+  const [success, setSuccess] = useState(false);
 const [userLogins,setuserLogins] = useState ({
     username:"",
     passord:""
@@ -15,10 +17,9 @@ const handleInput = (e)=>{
     setuserLogins({
         ...userLogins,[e.target.name]:e.target.value
     })
-    console.log(userLogins)
 }
 
-const {mutate,isLoading,isError} = useMutation({
+const {mutate,isLoading,isError,error} = useMutation({
   mutationFn: async (userObj)=>{
    const response = await fetch(`http://localhost:4000/auth/login`,{
       "method":"POST",
@@ -37,19 +38,28 @@ const {mutate,isLoading,isError} = useMutation({
     const data = await response.json();
     return data;
   },
-
+ 
   onSuccess:(user)=>{
-    
+    setSuccess(true);
+    setTimeout(() => {
+      setSuccess(false);
+      redirect ("/bloglisting")
+    }, 3000);
+
   }
+ 
 })
 
 const handleAuth = (e) => {
   e.preventDefault(); 
-  mutate(userLogins); 
+  mutate(userLogins) 
+ 
 };
   return (
     <div className='overall-login-component'>
       {isLoading && <div className="alert alert-info">isLoading</div>}
+      {isError && <div className="alert alert-danger">{error.message}</div>}
+      {success && <div className="alert alert-success">Login successful</div>}
         <form onSubmit={handleAuth}>
         <label className='text-dark label-name' htmlFor='userName'>Username/email</label><br />
         <input onChange={handleInput}  required name="username" id='userName' type='text' className='form-control signup-input' placeholder='username/password' /><br />

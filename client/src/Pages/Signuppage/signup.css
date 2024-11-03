@@ -7,6 +7,10 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 }
+.brand-name-signup{
+color: white;
+width: max-content;
+}
 @media screen and (max-width:46.875em) {
     .overall-signup-container{
         height: max-content;
@@ -78,6 +82,10 @@ font-weight: bold;
 text-align: center;
 }
 
-
+.login-link{
+text-align: center;
+margin-top: 1rem;
+font-size: 1.3rem;
+}
 
 

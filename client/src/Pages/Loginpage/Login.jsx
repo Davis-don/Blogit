@@ -1,10 +1,13 @@
 import React from 'react'
 import './login.css'
 import Logincomponent from '../../Components/Login/Logincomponent'
+import { useNavigate } from 'react-router-dom'
 
 function Login() {
+  const navigate = useNavigate();
   return (
     <div className='overall-signup-container'>
+      <h1 onClick={()=>navigate("/")} className='brand-name-signup container-fluid'>Blogit</h1>
             <div className="content-holders-signup">
           <div className="right-side-signup">
             <div className="signup-text-box">

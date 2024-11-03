@@ -5,6 +5,7 @@ import {QueryClient,QueryClientProvider} from "react-query"
 import Homescreen from './Pages/Homescreen/Homescreen'
 import Signup from './Pages/Signuppage/Signup'
 import Login from './Pages/Loginpage/Login'
+import Bloglisting from './Pages/Bloglistingpage/Bloglisting'
 
 function App() {
 const client = new QueryClient();
@@ -16,6 +17,7 @@ const client = new QueryClient();
       <Route path='/' element={<Homescreen/>}/>
       <Route path='/signup' element = {<Signup/>}/>
       <Route path='/signin' element={<Login/>}/>
+      <Route path='/bloglisting' element={<Bloglisting/>}/>
     </Routes>
     </BrowserRouter>
     </QueryClientProvider>

@@ -18,8 +18,10 @@ app.use(cors({
 
 app.post("/users", async (req, res) => {
   try {
-    const {fName,lName,email,userName, password}=req.body;
+    const {fName,lName,email,userName, password, confirmPassword}=req.body;
     const hashedPassword =await bycript.hash(password,8)
+
+    if(password === confirmPassword){
     const newUser = await client.user.create({
         data:{
             first_Name:fName,
@@ -29,11 +31,18 @@ app.post("/users", async (req, res) => {
             password:hashedPassword
         }
     })
-    res.status(201).json(newUser)
+     res.status(201).json(newUser)
+     return ;
+    }
+    res.status(401).json({message:"Password mismatch"})
 
   } catch (e) {
-    console.error("Error fetching users:", e.message);
-    res.status(500).send(e.message);
+    if(e.code === 'P2002'){
+     res.status(500).send({message:"Similar username or Email"});
+     return;
+    }
+      res.status(500).send(e.message);
+    
   }
 });
 
@@ -51,7 +60,7 @@ try{
       ]
     }
   });
-  //if user doent exisst return failure
+  //if user doent exist return failure
 if(!user){
   res.status(401).json({message:"wrong email adress or password"})
   return;
