@@ -86,12 +86,13 @@ catch(e){
 res.status(500).json({message:"something went wrong"})
 }
 
-
 })
 
-
-
 //end of user login
+
+app.post("/post",(req,res)=>{
+  console.log(req.body);
+})
 
 app.listen(4000, () => {
   console.log("Server is listening on port 4000");
