@@ -4,19 +4,26 @@ import {devtools,persist} from 'zustand/middleware'
 const userStore = (set) => ({
     user: [],
 
-
-    addUser: (data) => {
-        set((state) => ({
-            user: [...state.user, data],
+    deleteAllUsers: () => {
+        set(() => ({
+            user: []
         }));
     },
-    logoutUser:(data)=>{
-        set((state)=>{
-            return {user:[]}
-        })
+
+    addUser: (data) => {
+        set(() => ({ user: [] }));
+        set((state) => ({
+            user: [data],
+        }));
+    },
+
+    logoutUser: () => {
+        set(() => ({
+            user: []
+        }));
     }
 });
 
-const useUserStore = create(devtools(persist(userStore,{name:'user' })));
+const useUserStore = create(devtools(persist(userStore, { name: 'user' })));
 
-export default  useUserStore;
+export default useUserStore;

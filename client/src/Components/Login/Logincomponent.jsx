@@ -61,7 +61,8 @@ const handleAuth = (e) => {
   return (
     <div className='overall-login-component'>
       {isLoading && <div className="alert alert-info">isLoading</div>}
-      {isError && <div className="alert alert-danger">{error.message}</div>}
+      {isError && <div className="alert alert-danger">Invalid login credentials</div>}
+      {/* {isError && <div className="alert alert-danger">{error.message}</div>} */}
       {success && <div className="alert alert-success">Login successful</div>}
         <form onSubmit={handleAuth}>
         <label className='text-dark label-name' htmlFor='userName'>Username/email</label><br />
