@@ -5,7 +5,6 @@ import useUserStore from '../../Store/Userstore'
 import Header from '../../Components/Bloglisting/Header'
 function Bloglisting() {
   const user = useUserStore((state) => state.user);
-  console.log(user)
   return (
     <div className='overall-bloglisting-container'>
       <Header firstName={user[0].first_Name} lastName={user[0].last_Name}/>

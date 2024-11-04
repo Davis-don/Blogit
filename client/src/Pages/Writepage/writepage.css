@@ -1,0 +1,71 @@
+.overall-writting-page{
+background-color: black;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 3rem;
+}
+.ovearall-form-container{
+width: 100rem;
+background-color: white;
+margin: auto;
+padding: 2rem;
+}
+.write-heading{
+text-align: center;
+}
+.ovearall-form-container form{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.field-div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.ovearall-form-container form label{
+    font-size: 2rem;
+}
+.ovearall-form-container form input{
+font-size: 1.3rem;
+}
+.ovearall-form-container form textarea{
+    font-size: 1.3rem;
+}
+.body-editor{
+    height: 10rem;
+}
+
+.write-submit-button{
+margin-top: 5rem;
+height: max-content;
+}
+@media screen and (max-width:48.4375em) {
+    .write-submit-button{
+        margin-top: 8rem;  
+    }   
+}
+@media screen and (max-width:29.0625em) {
+    .write-submit-button{
+        margin-top: 10rem;  
+    }   
+}
+@media screen and (max-width:23.75em) {
+    .write-submit-button{
+        margin-top: 12rem;  
+    }   
+}
+@media screen and (max-width:22.5em) {
+    .write-submit-button{
+        margin-top:20rem;  
+    }   
+}
+
+.write-submit-button button{
+background-color: var(--secondary-color);
+color: white;
+width: 10rem;
+}

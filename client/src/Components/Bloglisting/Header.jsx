@@ -30,7 +30,7 @@ function Header({firstName,lastName}) {
      </div>
      <div className="profile-blogliting-container">
         <div className="write-section-blolisting">
-            <h2 className='fs-secondary '><FaPenAlt /> Write</h2>
+            <h2 onClick={()=>navigate("/write")} className='fs-secondary '><FaPenAlt /> Write</h2>
         
         </div>
       <div className="profile-avatar-section-bloging-list rounded-circle">
@@ -38,7 +38,7 @@ function Header({firstName,lastName}) {
       </div>
      </div>
         </div>
-        <div className="bottom-bloglist-header">
+        <div className="bottom-bloglist-header container-fluid">
           <div className="bottom-top-section">
            {/* Small screen */}
 <div className="search-bloglisting-section-small ">

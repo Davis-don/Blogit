@@ -6,6 +6,7 @@ import Homescreen from './Pages/Homescreen/Homescreen'
 import Signup from './Pages/Signuppage/Signup'
 import Login from './Pages/Loginpage/Login'
 import Bloglisting from './Pages/Bloglistingpage/Bloglisting'
+import Writepg from './Pages/Writepage/Writepg'
 
 function App() {
 const client = new QueryClient();
@@ -18,6 +19,7 @@ const client = new QueryClient();
       <Route path='/signup' element = {<Signup/>}/>
       <Route path='/signin' element={<Login/>}/>
       <Route path='/bloglisting' element={<Bloglisting/>}/>
+      <Route path='/write' element={<Writepg/>}/>
     </Routes>
     </BrowserRouter>
     </QueryClientProvider>
