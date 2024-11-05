@@ -1,0 +1,30 @@
+.overall-blog-listing-body{
+
+}
+.bloglist-body-nav{
+    display: flex;
+    justify-content: center;
+    padding-block: 2rem;
+    border-bottom: 1px solid grey;
+
+}
+.bloglist-body-nav ul{
+display: flex;
+flex-direction: row;
+gap: 2rem;
+}
+.bloglist-body-nav ul li {
+color: rgb(89, 89, 89);
+}
+.bloglist-body-nav ul li:hover{
+color: black;
+cursor: pointer;
+font-weight: bold;
+}
+.active-bloglist-nav{
+border-bottom: 2px solid grey;
+}
+.body-display-section{
+height: 69vh;
+overflow: scroll;
+}

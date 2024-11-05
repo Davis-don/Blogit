@@ -1,0 +1,48 @@
+.overrall-article-card{
+height: max-content;
+width: 100rem;
+padding-block:3rem;
+}
+@media screen and (max-width:37.5em) {
+    .overrall-article-card{
+        width: 100%;
+        height: max-content;
+    }    
+}
+.article-header{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+align-items: center;
+}
+.user-img-article{
+width: 2.5rem;
+height: 2.5rem;
+background-color: black;
+}
+.body-article{
+display: flex;
+flex-direction: row;
+gap: 2rem;
+justify-content: space-between;
+align-items: center;
+}
+.text-box-article{
+width: 70%;
+}
+.article-title{
+
+}
+.article-content{
+font-size: 1.5rem;
+}
+.image-article{
+    width: 13rem;
+    height: 13rem;
+background-color: black;
+}
+.article-footer{
+display: flex;
+flex-direction: row;
+gap: 2rem;
+}

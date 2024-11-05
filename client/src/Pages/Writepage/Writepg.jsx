@@ -5,9 +5,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import useUserStore from '../../Store/Userstore';
 import { Editor } from 'primereact/editor';
 import { useMutation } from 'react-query';
+import { useNavigate } from 'react-router-dom';
 
 function Writepg() {
+    const redirect = useNavigate()
     const user = useUserStore((state) => state.user);
+    const [success,setSuccess]=useState(false)
+    const [wait,setWait]=useState(false)
     const [dataSet, setnewDataSet] = useState(null);
 
     const [userPost, setUserPost] = useState({
@@ -56,22 +60,42 @@ function Writepg() {
 
     const { mutate, isLoading, isError, error } = useMutation({
         mutationFn: async (postData) => {
-            const response = await fetch(`http://localhost:4000/post`, {
+            const response = await fetch(`http://localhost:4000/create-post`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify(postData)
             });
+            if (response.ok === false) {
+                const error = await response.json();
+                throw new Error(error.message);
+                   
+            }
+            console.log(response);
+
             return response.json();
+        },
+        onSuccess:()=>{
+            setSuccess(true);
+            setWait(false)
+            setTimeout(() => {
+              setSuccess(false);
+              redirect ("/bloglisting")
+            }, 3000);
+        },
+
+        onError: (error) =>{
+            setError(error)
         }
     });
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+setWait(true)
         // Wait for the image URL to be retrieved
         const imageUrl = await getClaudinaryUrl();
+        console.log(imageUrl);
         const newDataSet = {
             image: imageUrl,
             title: userPost.title,
@@ -91,9 +115,14 @@ function Writepg() {
 
     return (
         <>
-            <Header firstName={user[0].first_Name} lastName={user[0].last_Name} />
+            <Header firstName={user[0].firstName} lastName={user[0].lastName} />
             <div className='overall-writting-page'>
                 <div className="ovearall-form-container card">
+                {isLoading && <div className="alert alert-info">isLoading</div>}
+                {isError && <div className="alert alert-danger">Could not add post</div>}
+                {success && <div className="alert alert-success">Post added successfully</div>}
+                {wait && <div className="alert alert-success">Please wait as we process.....</div>}
+
                     <h1 className='write-heading'>Publish post</h1>
                     <form className="blog-form" onSubmit={handleSubmit}>
                         <div className='field-div'>

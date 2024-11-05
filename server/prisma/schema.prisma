@@ -1,4 +1,4 @@
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Looking for ways to speed up your queries or scale easily with serverless or edge functions?
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
@@ -10,13 +10,29 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model user {
-  id Int @id @default(autoincrement())
-  first_Name String
-  last_Name String
-  Email     String @unique
-  user_Name String @unique
-  password String
+model User {
+  id        Int      @id @default(autoincrement())
+  firstName String   @map("first_Name")
+  lastName  String   @map("last_Name")
+  email     String   @unique @map("Email")
+  username  String   @unique @map("user_Name")
+  password  String
+  posts     Post[]
 
   @@map("user_tbl")
+}
+
+model Post {
+  id       Int    @id @default(autoincrement())
+  blogImg  String @map("blog_img")
+  title    String
+  excerpt  String
+  body     String
+  userId   Int    @map("user_Id")
+  user     User   @relation(fields: [userId], references: [id], onDelete:Cascade)
+
+  createdAt DateTime  @default(now()) 
+  updatedAt DateTime  @updatedAt 
+
+  @@map("post_tbl")
 }

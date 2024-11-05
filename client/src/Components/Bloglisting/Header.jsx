@@ -4,9 +4,14 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { CiSearch } from "react-icons/ci";
 import { FaPenAlt } from "react-icons/fa";
 import {useNavigate} from 'react-router-dom'
+import { useState } from 'react';
+
+
 function Header({firstName,lastName}) {
     const firstNameFirstCharacter = firstName.charAt(0);
     const navigate = useNavigate();
+    const [forYou,setForYou] = useState(true)
+    const [myBlogs,setMyBlogs] = useState(false)
   return (
     <div className='overall-bloglisting-header'>
         <div className="top-bloglist-header">
@@ -55,9 +60,7 @@ function Header({firstName,lastName}) {
         </div>
         {/* end small screen */}
           </div>
-
-
-
+     
 
 
         </div>

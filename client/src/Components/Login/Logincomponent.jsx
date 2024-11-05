@@ -10,16 +10,21 @@ function Logincomponent() {
   const redirect = useNavigate()
   const setUser =  useUserStore((state)=>state.addUser)
   const [success, setSuccess] = useState(false);
+
 const [userLogins,setuserLogins] = useState ({
     username:"",
     passord:""
 })
+
+
 
 const handleInput = (e)=>{
     setuserLogins({
         ...userLogins,[e.target.name]:e.target.value
     })
 }
+
+
 
 const {mutate,isLoading,isError,error} = useMutation({
   mutationFn: async (userObj)=>{
@@ -38,6 +43,7 @@ const {mutate,isLoading,isError,error} = useMutation({
       throw new Error(error);
     }
     const data = await response.json();
+    
     return data;
   },
  
@@ -52,6 +58,57 @@ const {mutate,isLoading,isError,error} = useMutation({
   }
  
 })
+
+
+
+
+
+
+
+
+// const { mutate, isLoading, isError, error } = useMutation({
+//   mutationFn: async (userObj) => {
+//     const response = await fetch(`http://localhost:4000/auth/login`, {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(userObj),
+//       credentials: "include", 
+//     });
+
+//     if (!response.ok) {
+//       const error = await response.json();
+//       console.log(error);
+//       throw new Error(error.message || "Failed to log in");
+//     }
+
+//     const data = await response.json();
+//     // console.log("Auth Token:", data.authToken); 
+//     return data;
+//   },
+
+//   onSuccess: (data) => {
+//     // const { authToken, user } = data;
+//     setUser(user); 
+//     setSuccess(true);
+    
+  
+//     //sessionStorage.setItem("authToken", authToken);
+
+//     setTimeout(() => {
+//       setSuccess(false);
+//       redirect("/bloglisting");
+//     }, 3000);
+//   },
+// });
+
+
+
+
+
+
+
 
 const handleAuth = (e) => {
   e.preventDefault(); 
