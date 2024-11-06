@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import Articlecard from './Articlecard';
 import './articlecards.css';
 import { useMutation } from 'react-query';
+import useBlogStore from '../../../Store/myBlogsStore';
 
 function Articlescards({reqApi}) {
+  const posts = useBlogStore((state) => state.blog);
   const token = sessionStorage.getItem("token");
-  
-  const [articles, setArticles] = useState([]);
-
+  const setPost = useBlogStore(((state)=>state.addBlog))
   
   const { mutate, error, isLoading, isError } = useMutation({
     mutationFn: async () => {
@@ -25,8 +25,7 @@ function Articlescards({reqApi}) {
       return response.json(); 
     },
     onSuccess: (data) => {
-      setArticles(data); 
-      console.log(data)
+      setPost(data)
     },
   });
 
@@ -42,8 +41,8 @@ function Articlescards({reqApi}) {
       {isError && <p>Error: {error.message}</p>}
       
     
-      {articles.map((article) => (
-        <Articlecard image={article.blogImg} id={article.user.id} fullNames={article.user.firstName + " " + article.user.lastName} key={article.id} title={article.title} content={article.body} createdAt = {article.createdAt} updatedAt = {article.updatedAt} />
+      {posts[0].map((article) => (
+        <Articlecard image={article.blogImg} id={article.id} fullNames={article.user.firstName + " " + article.user.lastName} key={article.id} title={article.title} content={article.body} createdAt = {article.createdAt} updatedAt = {article.updatedAt} />
       ))}
     </div>
   );

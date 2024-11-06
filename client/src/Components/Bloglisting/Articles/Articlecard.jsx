@@ -1,8 +1,10 @@
 import React from 'react'
 import './articlecard.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
+
+
 function Articlecard({title,content,fullNames,createdAt,updatedAt,image}) {
-    console.log(image)
+    
 
     const getNCharacters = (str)=>{
         return str.length > 200 ? str.slice(0, 200) + "...." : str + "....";

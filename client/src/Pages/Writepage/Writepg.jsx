@@ -97,7 +97,6 @@ function Writepg() {
 setWait(true)
         // Wait for the image URL to be retrieved
         const imageUrl = await getClaudinaryUrl();
-        console.log(imageUrl);
         const newDataSet = {
             image: imageUrl,
             title: userPost.title,
