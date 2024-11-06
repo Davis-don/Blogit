@@ -90,8 +90,8 @@ if (!passwordsMatch) {
 const token = jwt.sign(user.id, process.env.JWT_SECRET)
 
 //send token to cookie
-// res.status(200).json({ authToken: token, user });
-res.status(200).cookie("authToken",token,{httpOnly:true}).json(user)
+res.status(200).json({ authToken: token, user });
+// res.status(200).cookie("authToken",token,{httpOnly:true}).json(user)
 
 }
 catch(e){
@@ -133,7 +133,7 @@ app.post("/create-post", jwtMiddleware, async (req, res) => {
 
 ///////////////////////get post including its user details
 
-app.get("/articles", async (req,res)=>{
+app.get("/articles",jwtMiddleware,async (req,res)=>{
   try{
     const userId = req.userId;
     const parsedUserId = parseInt(userId, 10);
@@ -141,7 +141,7 @@ app.get("/articles", async (req,res)=>{
     where:{
       userId:{
         //replace later
-        not:userId
+        not:parsedUserId
       }
     },
     include:{
@@ -164,7 +164,7 @@ app.get("/articles", async (req,res)=>{
   
 
 // }
-app.get("/my-blogs", async (req,res)=>{
+app.get("/my-blogs",jwtMiddleware, async (req,res)=>{
   try {
     const userId = req.userId;
     const parsedUserId = parseInt(userId, 10);
@@ -172,7 +172,7 @@ app.get("/my-blogs", async (req,res)=>{
     const articles = await client.post.findMany({
         where: {
           //replace later
-            userId: userId, 
+            userId: parsedUserId, 
         },
         include: {
             user: true, 

@@ -6,9 +6,10 @@ import Header from '../../Components/Bloglisting/Header'
 import BloglistBody from '../../Components/BloglistingBody/BloglistBody'
 function Bloglisting() {
   const user = useUserStore((state) => state.user);
+  console.log(user)
   return (
     <div className='overall-bloglisting-container'>
-      <Header firstName={user[0].firstName} lastName={user[0].lastName}/>
+      <Header firstName={user[0].user.firstName} lastName={user[0].user.lastName}/>
       <BloglistBody/>
         
         </div>

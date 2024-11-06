@@ -1,10 +1,11 @@
 import React from 'react'
 import './articlecard.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
-function Articlecard({title,content,id,fullNames,createdAt,updatedAt}) {
+function Articlecard({title,content,fullNames,createdAt,updatedAt,image}) {
+    console.log(image)
 
     const getNCharacters = (str)=>{
-        return str.length > 200 ? str.slice(0, 200) : str;
+        return str.length > 200 ? str.slice(0, 200) + "...." : str + "....";
     }
 
     //function for time stamp
@@ -32,9 +33,11 @@ function Articlecard({title,content,id,fullNames,createdAt,updatedAt}) {
         <div className="body-article">
             <div className="text-box-article">
          <h1 className='article-title'>{title}</h1>
-           <p className='article-content text-secondary'>{getNCharacters(content) + "...."}</p>
+           <p className='article-content text-secondary' dangerouslySetInnerHTML={{__html:getNCharacters(content)}}></p>
             </div>
-            <div className="image-article"> </div>
+            <div className="image-article">
+           <img className='article-thumbnail' src={image} alt="image" />
+                 </div>
         </div>
         <div className="article-footer">
             <h5 className='text-secondary'>last update {timeStampDisplay(updatedAt)}</h5>

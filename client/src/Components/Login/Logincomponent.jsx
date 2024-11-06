@@ -43,7 +43,8 @@ const {mutate,isLoading,isError,error} = useMutation({
       throw new Error(error);
     }
     const data = await response.json();
-    
+    //console.log(data.authToken)
+    sessionStorage.setItem("token", data.authToken);
     return data;
   },
  

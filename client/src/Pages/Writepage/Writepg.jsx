@@ -8,6 +8,7 @@ import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 
 function Writepg() {
+    const token = sessionStorage.getItem("token");
     const redirect = useNavigate()
     const user = useUserStore((state) => state.user);
     const [success,setSuccess]=useState(false)
@@ -57,13 +58,15 @@ function Writepg() {
             return null;
         }
     };
+   
 
     const { mutate, isLoading, isError, error } = useMutation({
         mutationFn: async (postData) => {
             const response = await fetch(`http://localhost:4000/create-post`, {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                      "Authorization":  token
                 },
                 body: JSON.stringify(postData)
             });
@@ -72,7 +75,6 @@ function Writepg() {
                 throw new Error(error.message);
                    
             }
-            console.log(response);
 
             return response.json();
         },
@@ -115,7 +117,7 @@ setWait(true)
 
     return (
         <>
-            <Header firstName={user[0].firstName} lastName={user[0].lastName} />
+            <Header firstName={user[0].user.firstName} lastName={user[0].user.lastName} />
             <div className='overall-writting-page'>
                 <div className="ovearall-form-container card">
                 {isLoading && <div className="alert alert-info">isLoading</div>}
