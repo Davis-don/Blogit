@@ -7,6 +7,7 @@ import Signup from './Pages/Signuppage/Signup'
 import Login from './Pages/Loginpage/Login'
 import Bloglisting from './Pages/Bloglistingpage/Bloglisting'
 import Writepg from './Pages/Writepage/Writepg'
+import Foryoupg from './Pages/Articlespage/Foryoupg'
 
 function App() {
 const client = new QueryClient();
@@ -20,6 +21,7 @@ const client = new QueryClient();
       <Route path='/signin' element={<Login/>}/>
       <Route path='/bloglisting' element={<Bloglisting/>}/>
       <Route path='/write' element={<Writepg/>}/>
+      <Route path='/read-for-you' element={<Foryoupg/>}/>
     </Routes>
     </BrowserRouter>
     </QueryClientProvider>

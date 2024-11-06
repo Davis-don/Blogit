@@ -1,10 +1,11 @@
 import React from 'react'
 import './articlecard.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { useNavigate } from 'react-router-dom'
 
 
 function Articlecard({title,content,fullNames,createdAt,updatedAt,image}) {
-    
+const navigate = useNavigate();
 
     const getNCharacters = (str)=>{
         return str.length > 200 ? str.slice(0, 200) + "...." : str + "....";
@@ -27,7 +28,7 @@ function Articlecard({title,content,fullNames,createdAt,updatedAt,image}) {
 
     }
   return (
-    <div className='overrall-article-card container'>
+    <div onClick={()=>navigate("/read-for-you")} className='overrall-article-card container'>
         <div className="article-header">
             <div className="user-img-article rounded-circle"></div>
             <div className="user-name-article"><h5 className='text-secondary'>{fullNames + " " + "(" + timeStampDisplay(createdAt)+ ")"}</h5></div>

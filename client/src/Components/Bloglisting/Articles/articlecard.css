@@ -2,6 +2,7 @@
 height: max-content;
 width: 100rem;
 padding-block:3rem;
+cursor: pointer;
 }
 @media screen and (max-width:37.5em) {
     .overrall-article-card{
