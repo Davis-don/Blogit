@@ -1,0 +1,90 @@
+.overall-for-you-display-card{
+width: 60vw;
+margin: auto;
+display: flex;
+justify-content: center;
+flex-direction: column;
+gap: 2rem;
+}
+@media screen and (max-width:48.75em) {
+    .overall-for-you-display-card{
+        width: 90vw; 
+    } 
+}
+.overall-for-you-display-card h1{
+font-size: 5rem;
+}
+@media screen and (max-width:42.5em) {
+    .overall-for-you-display-card h1{
+        font-size: 3.5rem;
+    }   
+}
+.user-cred-for-you-all{
+display: flex;
+flex-direction: row;
+align-items: center;
+gap: 2rem;
+}
+.user-avatar{
+width: 3rem;
+height: 3rem;
+background-color: black;
+}
+.user-name-cred{
+
+}
+.hero-for-you-all{
+    height: 40rem;
+    width: 100%;
+    margin: auto;
+}
+.hero-for-you-all img{
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+.body-content-for-you{
+font-size: 2rem;
+font-weight: 400;
+}
+@media screen and (max-width:30em) {
+    .body-content-for-you{
+        font-size: 1.7rem;
+    }    
+}
+.for-you-footer-section{
+    background-color: #F9F9F9;
+    height: max-content;
+    padding: 3rem;
+    margin-top: 2rem;
+}
+.user-cred-card-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+.user-card-footer-img{
+width: 8rem;
+height: 8rem;
+background-color: black;
+}
+.bottom-text-content-footer-for-u{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.bottom-text-content-footer-for-u h1{
+
+}
+.see-more-for-you-btn{
+margin-block: 2rem;
+
+}
+.see-more-for-you-btn button{
+font-size: 1.5rem;
+}
