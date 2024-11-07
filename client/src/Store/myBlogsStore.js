@@ -10,6 +10,9 @@ const myBlogStore = (set)=>({
             blog: [data],
         }));
     },
+
+
+    
     
 })
 

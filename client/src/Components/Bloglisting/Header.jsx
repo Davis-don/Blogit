@@ -12,12 +12,16 @@ function Header({firstName,lastName}) {
     const navigate = useNavigate();
     const [forYou,setForYou] = useState(true)
     const [myBlogs,setMyBlogs] = useState(false)
+
+    const cursorH1 = {
+      cursor:"pointer"
+    }
   return (
     <div className='overall-bloglisting-header'>
         <div className="top-bloglist-header">
      <div className="logo-serch-container">
         <div className="logo-bloglisting-section text-dark">
-            <h1>Blogit</h1>
+            <h1 style={cursorH1} onClick={()=>navigate("/bloglisting")}>Blogit</h1>
       </div>
         <div className="search-bloglisting-section ">
             <form>
@@ -35,10 +39,10 @@ function Header({firstName,lastName}) {
      </div>
      <div className="profile-blogliting-container">
         <div className="write-section-blolisting">
-            <h2 onClick={()=>navigate("/write")} className='fs-secondary '><FaPenAlt /> Write</h2>
+            <h2 style={cursorH1} onClick={()=>navigate("/write")} className='fs-secondary '><FaPenAlt /> Write</h2>
         
         </div>
-      <div className="profile-avatar-section-bloging-list rounded-circle">
+      <div style={cursorH1} onClick={()=>{navigate("/bloglisting")}} className="profile-avatar-section-bloging-list rounded-circle">
        <h2 className='text-light'>{firstNameFirstCharacter}</h2>
       </div>
      </div>

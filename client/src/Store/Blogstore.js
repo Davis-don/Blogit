@@ -12,25 +12,25 @@ const otherPeopleArticlesStore = (set, get) => ({
         }));
     },
 
-    getSpecificArticle: async (id) => {
-        //set specific artical to none
-        set(() => ({ specificArticle: [] }));
+    // getSpecificArticle: async (id) => {
+    //     //set specific artical to none
+    //     set(() => ({ specificArticle: [] }));
        
-        //update the article now
-        set((state) => {
-            const specificArticle = state.article.find((article) => article.id === id);
-            return { specificArticle: specificArticle ? [specificArticle] : [] };
-        });
+    //     //update the article now
+    //     set((state) => {
+    //         const specificArticle = state.article.find((article) => article.id === id);
+    //         return { specificArticle: specificArticle ? [specificArticle] : [] };
+    //     });
         
 
-        console.log(`selected id is ${id}`)
-        const allArticles = get().article
-        console.log("all articles below")
-        console.log(allArticles)
-        const article = get().specificArticle;
-        console.log("Selected article below");
-        console.log(article);
-    },
+    //     console.log(`selected id is ${id}`)
+    //     const allArticles = get().article
+    //     console.log("all articles below")
+    //     console.log(allArticles)
+    //     const article = get().specificArticle;
+    //     console.log("Selected article below");
+    //     console.log(article);
+    // },
 });
 
 const useArticleStore = create(devtools(persist(otherPeopleArticlesStore, { name: 'article' })));

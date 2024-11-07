@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 import useArticleStore from '../../../Store/Blogstore';
 
-function Articlecard({ title, content, fullNames, createdAt, updatedAt, image, id }) {
+function Articlecard({  title, content, fullNames, createdAt, updatedAt, image, id }) {
     const navigate = useNavigate();    
 
     const getNCharacters = (str) => {

@@ -206,6 +206,31 @@ catch (e){
 res.status(500).json({message:"error incured"})
 }
 })
+/////end///
+
+/////////////////////////////////delete specific blog
+
+app.delete('/delete-post',async (req,res)=>{
+
+  try{
+    const {id} = req.query;
+   //run delete command
+   const deletePost = await client.post.delete({
+    where:{
+      id:parseInt(id)
+    }
+   })
+   res.status(200).json({message:"deletion successful"})
+  }
+  catch(e){
+    res.status(500).json({message:"could not delete post"})
+  }
+})
+
+
+
+
+
 
 app.listen(4000, () => {
   console.log("Server is listening on port 4000");

@@ -30,6 +30,7 @@ function Foryoupg() {
     }
   );
 
+  
   return (
     <div className='overall-for-you-all-page'>
       <Header firstName={user[0].user.firstName} lastName={user[0].user.lastName} />
