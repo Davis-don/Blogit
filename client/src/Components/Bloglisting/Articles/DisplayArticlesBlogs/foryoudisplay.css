@@ -6,6 +6,15 @@ justify-content: center;
 flex-direction: column;
 gap: 2rem;
 }
+.editing-container{
+display: flex;
+flex-direction: row;
+justify-content: end;
+gap: 1.5rem;
+}
+.icons-post{
+font-size: 3rem;
+}
 @media screen and (max-width:48.75em) {
     .overall-for-you-display-card{
         width: 90vw; 

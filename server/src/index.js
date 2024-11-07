@@ -186,6 +186,27 @@ app.get("/my-blogs",jwtMiddleware, async (req,res)=>{
 
 })
 
+
+
+///////////////////////get specific blog
+app.get('/article-read', async (req,res)=>{
+  try{
+    const {id} = req.query;
+    const newSinglePost = await client.post.findFirst({
+      where:{
+       id:parseInt(id)
+      },
+      include:{
+        user:true
+      }
+    });
+    res.status(200).json(newSinglePost)
+  }
+catch (e){
+res.status(500).json({message:"error incured"})
+}
+})
+
 app.listen(4000, () => {
   console.log("Server is listening on port 4000");
 });

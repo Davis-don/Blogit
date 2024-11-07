@@ -21,7 +21,7 @@ const client = new QueryClient();
       <Route path='/signin' element={<Login/>}/>
       <Route path='/bloglisting' element={<Bloglisting/>}/>
       <Route path='/write' element={<Writepg/>}/>
-      <Route path='/read-for-you' element={<Foryoupg/>}/>
+      <Route path='/article-read' element={<Foryoupg/>}/>
     </Routes>
     </BrowserRouter>
     </QueryClientProvider>

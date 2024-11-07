@@ -5,7 +5,7 @@ import Articlescards from '../../Components/Bloglisting/Articles/Articlescards'
 function Articlespg() {
   return (
     <div className='overall-articles-page'>
-        <Articlescards reqApi = "http://localhost:4000/articles"/>
+        <Articlescards linkType = "otherArticles" reqApi = "http://localhost:4000/articles"/>
         </div>
   )
 }
