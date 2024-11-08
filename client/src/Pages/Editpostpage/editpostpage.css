@@ -1,0 +1,16 @@
+.overall-editpostpage-overall{
+height: 100vh;
+overflow: scroll;
+}
+.form-conatiner-edit{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.form-conatiner-edit form{
+width: 100%;
+
+}
+.blog-title-edit{
+font-size: 2rem;
+}

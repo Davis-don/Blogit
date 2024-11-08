@@ -8,6 +8,8 @@ import Login from './Pages/Loginpage/Login'
 import Bloglisting from './Pages/Bloglistingpage/Bloglisting'
 import Writepg from './Pages/Writepage/Writepg'
 import Foryoupg from './Pages/Articlespage/Foryoupg'
+import Profilepg from './Pages/Myprofilepage/Profilepg'
+import Editpostpage from './Pages/Editpostpage/Editpostpage'
 
 function App() {
 const client = new QueryClient();
@@ -22,6 +24,8 @@ const client = new QueryClient();
       <Route path='/bloglisting' element={<Bloglisting/>}/>
       <Route path='/write' element={<Writepg/>}/>
       <Route path='/article-read' element={<Foryoupg/>}/>
+      <Route path='/my-profile' element = {<Profilepg/>}/>
+      <Route path='/edit-post' element={<Editpostpage/>}/>
     </Routes>
     </BrowserRouter>
     </QueryClientProvider>

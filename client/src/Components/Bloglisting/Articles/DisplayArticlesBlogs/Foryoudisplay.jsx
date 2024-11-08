@@ -60,7 +60,7 @@ function Foryoudisplay({articleData}) {
     <div className='overall-for-you-display-card'>
         {  userBlog && 
     <div className="editing-container">
-            <div className="update-icon"><CiEdit className='icons-post' /></div>
+            <div onClick={() => navigate("/edit-post", { state: articleData })} className="update-icon"><CiEdit className='icons-post' /></div>
             <div  onClick={()=>{mutate(id); navigate("/bloglisting")}}  className="delete-icon"><MdDeleteOutline className='icons-post' /></div>
             </div>
             }
@@ -91,11 +91,12 @@ function Foryoudisplay({articleData}) {
                 <div className="bottom-text-content-footer-for-u">
                     <h2>{user.firstName + " " + user.lastName}</h2>
                     <h4 className='text-secondary'>{excerpt}</h4>
-
+                   {!userBlog && 
                     <div className="see-more-for-you-btn">
                     <button className='btn btn-outline-dark'>See all from {user.firstName + " " + user.lastName}</button>
                     <h4 className='mt-3 text-secondary'>created {timeStampDisplay(createdAt)}</h4>
                     </div>
+                    }
 
                     
                 </div>

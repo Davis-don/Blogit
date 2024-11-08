@@ -226,6 +226,46 @@ app.delete('/delete-post',async (req,res)=>{
     res.status(500).json({message:"could not delete post"})
   }
 })
+//end
+
+///////////////////////////////update post request
+
+
+app.put('/update-post/:postId', jwtMiddleware, async (req, res) => {
+  try {
+      const { image, title, excerpt, body } = req.body;
+      const { postId } = req.params;
+      const userId = req.userId;  
+      const parsedUserId = parseInt(userId, 10);
+
+      console.log(postId); 
+
+      const updateData = {
+          title,
+          excerpt,
+          body,
+          userId: parsedUserId
+      };
+
+      if (image !== undefined) {
+          updateData.blogImg = image;
+      }
+
+      const updatedPost = await client.post.update({
+          where: {
+              id: parseInt(postId, 10),
+          },
+          data: updateData,
+      });
+
+      res.status(200).json({ message: 'Post updated successfully', post: updatedPost });
+  } catch (e) {
+      console.error(e);
+      res.status(500).json({ message: 'Could not update post' });
+  }
+});
+
+
 
 
 

@@ -42,7 +42,7 @@ function Header({firstName,lastName}) {
             <h2 style={cursorH1} onClick={()=>navigate("/write")} className='fs-secondary '><FaPenAlt /> Write</h2>
         
         </div>
-      <div style={cursorH1} onClick={()=>{navigate("/bloglisting")}} className="profile-avatar-section-bloging-list rounded-circle">
+      <div style={cursorH1} onClick={()=>{navigate("/my-profile")}} className="profile-avatar-section-bloging-list rounded-circle">
        <h2 className='text-light'>{firstNameFirstCharacter}</h2>
       </div>
      </div>
