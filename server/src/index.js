@@ -266,6 +266,31 @@ app.put('/update-post/:postId', jwtMiddleware, async (req, res) => {
 });
 
 
+//////////get all posts for a certain user 
+
+app.get('/user-posts/:userId', async (req, res) => {
+  try {
+    
+    const { userId } = req.params;
+    const parsedUserId = parseInt(userId, 10); 
+
+    
+    const userPosts = await client.post.findMany({
+      where: {
+        userId: parsedUserId,
+      },
+      include: {
+        user: true, 
+      },
+    });
+
+    
+    res.status(200).json(userPosts);
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ message: "An error occurred while retrieving posts for the user." });
+  }
+});
 
 
 

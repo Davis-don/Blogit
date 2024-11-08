@@ -12,7 +12,6 @@ function Foryoupg() {
 
 
   const id = searchParams.get('id');
-  console.log("Article ID:", id);
 
   const { data, isLoading, isError, refetch } = useQuery(
     ['postId', id], 

@@ -10,6 +10,7 @@ import Writepg from './Pages/Writepage/Writepg'
 import Foryoupg from './Pages/Articlespage/Foryoupg'
 import Profilepg from './Pages/Myprofilepage/Profilepg'
 import Editpostpage from './Pages/Editpostpage/Editpostpage'
+import Seeallfromspecificuser from './Pages/See all from user/Seeallfromspecificuser'
 
 function App() {
 const client = new QueryClient();
@@ -26,6 +27,8 @@ const client = new QueryClient();
       <Route path='/article-read' element={<Foryoupg/>}/>
       <Route path='/my-profile' element = {<Profilepg/>}/>
       <Route path='/edit-post' element={<Editpostpage/>}/>
+      <Route path='/see/all' element = {<Seeallfromspecificuser/>}/>
+    
     </Routes>
     </BrowserRouter>
     </QueryClientProvider>

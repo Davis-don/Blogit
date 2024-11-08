@@ -1,3 +1,5 @@
+
+
 import React from 'react'
 import './foryoudisplay.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -93,7 +95,7 @@ function Foryoudisplay({articleData}) {
                     <h4 className='text-secondary'>{excerpt}</h4>
                    {!userBlog && 
                     <div className="see-more-for-you-btn">
-                    <button className='btn btn-outline-dark'>See all from {user.firstName + " " + user.lastName}</button>
+                    <button onClick={() => navigate("/see/all", { state: user })} className='btn btn-outline-dark'>See all from {user.firstName + " " + user.lastName}</button>
                     <h4 className='mt-3 text-secondary'>created {timeStampDisplay(createdAt)}</h4>
                     </div>
                     }
