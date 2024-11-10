@@ -7,7 +7,9 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import useUserStore from '../../Store/Userstore'
 
+
 function Logincomponent() {
+
   const redirect = useNavigate()
   const setUser =  useUserStore((state)=>state.addUser)
   const [success, setSuccess] = useState(false);
@@ -24,7 +26,6 @@ const handleInput = (e)=>{
         ...userLogins,[e.target.name]:e.target.value
     })
 }
-
 
 
 const {mutate,isLoading,isError,error} = useMutation({

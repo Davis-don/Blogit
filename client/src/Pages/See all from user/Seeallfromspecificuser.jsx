@@ -1,5 +1,5 @@
 import React from 'react'
-import './seeall.css'
+import './Seeall.css'
 import Header from '../../Components/Bloglisting/Header'
 import useUserStore from '../../Store/Userstore'
 import Seeallfrom from '../../Components/Seeall/Seeallfrom'
