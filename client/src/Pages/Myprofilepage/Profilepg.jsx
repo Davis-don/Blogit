@@ -11,7 +11,7 @@ function Profilepg() {
   return (
     <div className='overall-profile-page-section'>
         <Header firstName={user[0].user.firstName} lastName={user[0].user.lastName} />
-        <Profileupdate/>
+        {/* <Profileupdate/> */}
         <Personalinfoupdate/>
         <Passwordupdate/>
         </div>
