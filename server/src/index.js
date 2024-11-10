@@ -293,6 +293,124 @@ app.get('/user-posts/:userId', async (req, res) => {
 });
 
 
+//////////////////update user information
+app.put('/update-user', jwtMiddleware, async (req, res) => {
+  try {
+    const userId = req.userId; // Get userId from jwtMiddleware
+    const parsedUserId = parseInt(userId, 10);
+
+    // Get user update details from the request body
+    const { firstName, lastName, email, username } = req.body;
+
+    // Ensure `email` is unique, if provided
+    if (email) {
+      const existingUserByEmail = await client.user.findUnique({
+        where: { email }
+      });
+      
+      if (existingUserByEmail && existingUserByEmail.id !== parsedUserId) {
+        return res.status(400).json({ message: 'Email already in use' });
+      }
+    }
+
+    // Ensure `username` is unique, if provided
+    if (username) {
+      const existingUserByUsername = await client.user.findUnique({
+        where: { username }
+      });
+      
+      if (existingUserByUsername && existingUserByUsername.id !== parsedUserId) {
+        return res.status(400).json({ message: 'Username already in use' });
+      }
+    }
+
+    // Update user information
+    const updatedUser = await client.user.update({
+      where: { id: parsedUserId },
+      data: {
+        firstName,
+        lastName,
+        email,
+        username
+      }
+    });
+
+    res.status(200).json({ message: 'User information updated successfully', user: updatedUser });
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ message: 'Could not update user information' });
+  }
+});
+
+
+/////////////end
+
+////////////////////////////////////////////password change
+
+
+app.put('/update-password', jwtMiddleware, async (req, res) => {
+  try {
+    const userId = req.userId; 
+    const parsedUserId = parseInt(userId, 10);
+
+    const { prevpassword, newPassword, confirmPassword } = req.body;
+
+    
+    const user = await client.user.findFirst({
+      where: {
+        id: parsedUserId
+      }
+    });
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+  
+    const isMatch = await bcrypt.compare(prevpassword, user.password);
+    if (!isMatch) {
+      return res.status(400).json({ message: 'Previous password is incorrect' });
+    }
+
+    
+    if (newPassword !== confirmPassword) {
+      return res.status(400).json({ message: 'New passwords do not match' });
+    }
+
+    
+    const hashedNewPassword = await bcrypt.hash(newPassword, 8);
+
+    
+    const updatedUser = await client.user.update({
+      where: { id: parsedUserId },
+      data: { password: hashedNewPassword }
+    });
+
+    res.status(200).json({ message: 'Password updated successfully', user: updatedUser });
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ message: 'Could not update user information' });
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

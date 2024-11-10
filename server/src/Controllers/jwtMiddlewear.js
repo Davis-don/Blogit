@@ -4,12 +4,10 @@ import jwt from "jsonwebtoken";
 const jwtMiddleware = (req, res, next) => {
   //const {authToken} = req.cookies;
   const authToken = req.headers["authorization"];
-console.log("jwt undefined")
-console.log(authToken)
 
-  // if (!authToken) {
-  //   return res.status(401).json({ message: 'Token missing. Unauthorized' });
-  // }
+  if (!authToken) {
+    return res.status(401).json({ message: 'Token missing. Unauthorized' });
+  }
 
   
   jwt.verify(authToken, process.env.JWT_SECRET, (err, decoded) => {

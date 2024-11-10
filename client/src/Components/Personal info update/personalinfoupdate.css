@@ -1,0 +1,22 @@
+.overall-personal-info-container{
+padding: 2rem;
+}
+.overall-personal-info-container h1{
+text-align: center;
+border-bottom: 1px solid rgb(178, 176, 176);
+}
+.form-div-personal-info{
+
+}
+.form-div-personal-info form{
+display: flex;
+flex-direction: column;
+}
+.btn-personal-info-submit{
+width: max-content;
+margin-inline: auto;
+margin-block: 1rem;
+}
+.btn-personal-info-submit button{
+padding-inline: 2rem;
+}
